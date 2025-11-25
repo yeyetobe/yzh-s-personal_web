@@ -1,0 +1,9 @@
+/* Minimal index.css copied to public so GitHub Pages can serve /index.css
+   This file is intentionally small — add your global styles here if needed. */
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* If you want to use Tailwind in production without CDN, you can add the compiled CSS here. */
