@@ -106,7 +106,15 @@ function App() {
                       
                       <div className="space-y-20">
                         {PROJECTS.filter(p => p.featured).slice(0, 2).map((project, index) => (
-                          <div key={project.id} className={`flex flex-col md:flex-row gap-8 md:gap-16 items-start group cursor-pointer`} onClick={() => window.open(project.link, '_blank')}>
+                          <div key={project.id} className={`flex flex-col md:flex-row gap-8 md:gap-16 items-start group cursor-pointer`} onClick={() => {
+                              if (project.id === '3') {
+                                navigate({ type: 'gallery' });
+                              } else if (project.link) {
+                                window.open(project.link, '_blank');
+                              } else if (project.github) {
+                                window.open(project.github, '_blank');
+                              }
+                            }}>
                             <div className={`w-full md:w-3/5 aspect-[16/10] bg-stone-100 overflow-hidden relative order-1 ${index % 2 === 1 ? 'md:order-2' : ''}`}>
                                {/* Image handling: Use object-cover. In real deployment, these come from 'public/images/' */}
                                <img 
@@ -126,7 +134,7 @@ function App() {
                               <h3 className="font-serif text-3xl text-stone-900 mb-4 group-hover:underline decoration-1 underline-offset-4">{project.title}</h3>
                               <p className="text-stone-500 leading-relaxed mb-6 font-light">{project.description}</p>
                               <span className="inline-flex items-center text-sm text-stone-900 font-medium">
-                                Visit Site <ArrowUpRight className="w-4 h-4 ml-1" />
+                                Visit Site {(project.link || project.github) && <ArrowUpRight className="w-4 h-4 ml-1" />}
                               </span>
                             </div>
                           </div>
@@ -148,7 +156,15 @@ function App() {
                     
                     <div className="grid md:grid-cols-2 gap-x-12 gap-y-20">
                       {PROJECTS.map(project => (
-                        <div key={project.id} className="group cursor-pointer block" onClick={() => project.link && window.open(project.link, '_blank')}>
+                        <div key={project.id} className="group cursor-pointer block" onClick={() => {
+                          if (project.id === '3') {
+                            navigate({ type: 'gallery' });
+                          } else if (project.link) {
+                            window.open(project.link, '_blank');
+                          } else if (project.github) {
+                            window.open(project.github, '_blank');
+                          }
+                        }}>
                           <div className="aspect-[4/3] mb-6 overflow-hidden bg-stone-100 relative">
                              <img 
                                 src={project.imageUrl} 
@@ -178,6 +194,13 @@ function App() {
                         </div>
                       ))}
                     </div>
+                  </div>
+                )}
+
+                {/* GALLERY VIEW */}
+                {view.type === 'gallery' && (
+                  <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
+                    <Gallery />
                   </div>
                 )}
 

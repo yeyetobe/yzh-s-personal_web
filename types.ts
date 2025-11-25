@@ -40,8 +40,9 @@ export interface Profile {
   skills: string[];
 }
 
-export type ViewState = 
+export type ViewState =
   | { type: 'home' }
   | { type: 'projects' }
   | { type: 'blog' }
-  | { type: 'post'; postId: string };
+  | { type: 'post'; postId: string }
+  | { type: 'gallery' };

@@ -43,7 +43,8 @@ export const PROJECTS: Project[] = [
     title: "文化小船游南北网页",
     description: "第一个网站制作，用于假期社会实践成果汇总。关于南北文化。",
     techStack: ["html"],
-    github: "https://github.com/yeyetobe/SN_culture_bridge",
+    github: "https://yeyetobe.github.io/SN_culture_bridge/",
+    link: "https://yeyetobe.github.io/SN_culture_bridge/",
     imageUrl: "/images/project1-snCulture.jpg",
     featured: true
   },
@@ -55,9 +56,9 @@ export const PROJECTS: Project[] = [
     imageUrl: "/images/artwork.PNG",
     featured: false,
     gallery: [
-      "/images/artworks/painting1.jpg",
-      "/images/artworks/painting2.jpg",
-      "/images/artworks/painting3.jpg"
+      "/images/artworks/painting1.PNG",
+      "/images/artworks/painting2.PNG",
+      "/images/artworks/painting3.PNG"
     ]
   }
 ];
